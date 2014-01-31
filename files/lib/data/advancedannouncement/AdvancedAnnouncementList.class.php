@@ -4,10 +4,10 @@ namespace wcf\data\advancedannouncement;
 use wcf\data\DatabaseObjectList;
 
 /**
- * Represents a statement list.
+ * Represents a advanced-announcement list.
  * 
  * @author	Joshua Rüsweg
- * @package	de.joshsboard.jcoins
+ * @package	de.joshsboard.advancedannouncements
  */
 class AdvancedAnnouncementList extends DatabaseObjectList {
 

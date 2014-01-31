@@ -11,7 +11,7 @@ use wcf\data\advancedannouncement\AdvancedAnnouncementCache;
  * Adds jCoins mass processsing
  * 
  * @author	Joshua Rüsweg
- * @package	de.joshsboard. // @TODO
+ * @package	de.joshsboard.advancedannouncement
  */
 class AddAnnouncementsListener implements IEventListener {
 

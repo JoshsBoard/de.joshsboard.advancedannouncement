@@ -1,21 +1,20 @@
 <?php
-
 namespace wcf\acp\form;
 
 use wcf\data\advancedannouncement\AdvancedAnnouncementAction;
-use wcf\data\advancedannouncement\AdvancedAnnouncementEditor; 
+use wcf\data\advancedannouncement\AdvancedAnnouncementEditor;
+use wcf\data\user\group\UserGroupList;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
+use wcf\system\language\I18nHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
-use wcf\data\user\group\UserGroupList;
-use wcf\system\language\I18nHandler; 
 
 /**
- * Shows the premium-group add-form.
+ * Shows the advanced-announcemets add-form.
  *
  * @author	Joshua Rüsweg
- * @package	de.joshsboard.jcoins
+ * @package	de.joshsboard.advancedannouncements
  * @subpackage	acp.form
  */
 class AdvancedAnnouncementAddForm extends AbstractForm {
@@ -29,36 +28,150 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 	 * @see \wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('admin.advancedannouncement.canManage');
-	
+
 	/**
 	 * @see	\wcf\page\AbstractPage::$action
 	 */
 	public $action = 'add';
+
+	/**
+	 * a name for the announcement
+	 * @var String 
+	 */
 	public $name = '';
+
+	/**
+	 * is the announcement hideable?
+	 * @var boolean 
+	 */
 	public $removable = false;
+
+	/**
+	 * An array containing all user IDs must be in which the user, so that it is displayed.
+	 * @var array<int> 
+	 */
 	public $inUserGroup = array();
+
+	/**
+	 * An array containing all user IDs must not be in which the user, so that it is displayed.
+	 * @var array<in>
+	 */
 	public $notInUserGroup = array();
+
+	/**
+	 * user birthday criteria
+	 * @var int 
+	 */
 	public $hasBirthday = -1;
+
+	/**
+	 * min activity points criteria
+	 * @var int 
+	 */
 	public $minActivityPoints = -1;
+
+	/**
+	 * max activity points criteria
+	 * @var int 
+	 */
 	public $maxActivityPoints = -1;
+
+	/**
+	 * avatar criteria
+	 * @var int 
+	 */
 	public $noAvatar = -1;
+
+	/**
+	 * on site criteria
+	 * @var int 
+	 */
 	public $onSite = -1;
+
+	/**
+	 * an array with all sites for the onSite-criteria
+	 * @var array<string> 
+	 */
 	public $onSiteSites = array();
+
+	/**
+	 * time now is older than criteria
+	 * @var int 
+	 */
 	public $timeIsOlderThan = -1;
+
+	/**
+	 * time now is younger than criteria
+	 * @var int
+	 */
 	public $timeIsYoungerThan = -1;
+
+	/**
+	 * priority for the announcement
+	 * @var int
+	 */
 	public $priority = 100;
+
+	/**
+	 * objectIDs-criteria
+	 * @var array<int>
+	 */
 	public $objectID = array();
+
+	/**
+	 * parentObjectIDs-criteria
+	 * @var array<int>
+	 */
 	public $parentObjectID = array();
+
+	/**
+	 * objectType-criteria
+	 * @var array<string>
+	 */
 	public $objectType = array();
+
+	/**
+	 * parentObjectType-criteria
+	 * @var array<String> 
+	 */
 	public $parentObjectType = array();
+
+	/**
+	 * the content for the announcement
+	 * @var string 
+	 */
 	public $aa_content = "";
+
+	/**
+	 * defines wheather allow bbcodes in the content
+	 * @var boolean
+	 */
 	public $parseBBCodes = true;
+
+	/**
+	 * defines wheather allow html in the content
+	 * @var boolean
+	 */
 	public $allowHTML = false;
+
+	/**
+	 * defines wheather allow smileys in the content
+	 * @var boolean
+	 */
 	public $allowSmileys = false;
-	public $data = array();
+
+	/**
+	 * all style classes for the announcement-box
+	 * @var string 
+	 */
 	public $additionalStyleClasses = 'info';
+
+	/**
+	 * group list 
+	 * @var \wcf\data\user\group\UserGroupList 
+	 */
 	public $groups = null;
-	
+
 	/**
 	 * @see	\wcf\form\IForm::readFormParameters()
 	 */
@@ -66,7 +179,7 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		parent::readFormParameters();
 
 		I18nHandler::getInstance()->readValues();
-		
+
 		if (isset($_POST['name']))
 			$this->name = $_POST['name'];
 		if (isset($_POST['removable']) && $_POST['removable'] == 1)
@@ -135,14 +248,20 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 			$this->notInUserGroup = array();
 	}
 
+	/**
+	 * parse an string to an array by explode them with the identifer , 
+	 * 
+	 * @param   mixed    $array
+	 */
 	public function parseTextToIntArray(&$array) {
 		$array = explode(',', $array);
 
 		$array = array_map(function ($value) {
 			$value = StringUtil::trim($value);
-			
-			if (empty($value)) return false;
-			
+
+			if (empty($value))
+				return false;
+
 			return intval($value);
 		}, $array);
 
@@ -150,6 +269,12 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		$array = array_unique($array);
 	}
 
+	/**
+	 * parse an string to an array by explode them with the identifer \n or , 
+	 * 
+	 * @param   mixed    $array
+	 * @paran   boolean  $newlines  
+	 */
 	public function parseTextToArray(&$array, $newlines = true) {
 		if ($newlines)
 			$array = explode('\n', StringUtil::unifyNewlines($array));
@@ -172,18 +297,18 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		if (empty($this->name)) {
 			throw new UserInputException('name', 'empty');
 		}
-		
+
 		if ($this->timeIsYoungerThan !== -1) {
 			$this->timeIsYoungerThan = @strtotime($this->timeIsYoungerThan);
-			
+
 			if ($this->timeIsYoungerThan == false) {
 				throw new UserInputException('timeIsYoungerThan', 'notValid');
 			}
 		}
-		
+
 		if ($this->timeIsOlderThan !== -1) {
 			$this->timeIsOlderThan = @strtotime($this->timeIsOlderThan);
-			
+
 			if ($this->timeIsOlderThan == false) {
 				throw new UserInputException('timeIsOlderThan', 'notValid');
 			}
@@ -231,14 +356,14 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 			$updateData = array();
 			$updateData['content'] = 'wcf.advancedannouncements.content' . $id;
 			I18nHandler::getInstance()->save('aa_content', $updateData['content'], 'wcf.advancedannouncements');
-			
+
 			// update content
 			$editor = new AdvancedAnnouncementEditor($returnValues['returnValues']);
 			$editor->update($updateData);
 		}
-		
+
 		$this->saved();
-		
+
 		I18nHandler::getInstance()->reset();
 		// reset vars
 		$this->name = '';
@@ -263,14 +388,17 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		$this->allowHTML = false;
 		$this->allowSmileys = false;
 		$this->additionalStyleClasses = 'info';
-		
+
 		// show success
 		WCF::getTPL()->assign('success', true);
 	}
 
+	/**
+	 * @see	\wcf\page\IPage::readData()
+	 */
 	public function readData() {
 		I18nHandler::getInstance()->register('aa_content');
-		
+
 		parent::readData();
 
 		$this->groups = new UserGroupList();
@@ -284,7 +412,7 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		parent::assignVariables();
 
 		I18nHandler::getInstance()->assignVariables();
-		
+
 		WCF::getTPL()->assign(array(
 		    'name' => $this->name,
 		    'removable' => ($this->removable) ? 1 : 0,

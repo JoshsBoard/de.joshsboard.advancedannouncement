@@ -7,8 +7,7 @@ use wcf\page\SortablePage;
  * Represents a list of all announcements
  * 
  * @author	Joshua Rüsweg
- * @package	de.joshsboard.jcoins
- * @subpackage	acp.page
+ * @package	de.joshsboard.advancedannouncements
  */
 class AdvancedAnnouncementListPage extends SortablePage {
 

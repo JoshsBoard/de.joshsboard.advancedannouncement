@@ -1,5 +1,16 @@
+/**
+ * WCF.AdvancedAnnouncement is a class, which contains a collection of functions for
+ * the 'de.joshsboard.advancedannouncement'-package.
+ * 
+ * @author 		Joshua Ruesweg
+ * @copyright		JoshsBoard 2013
+ * @package		de.joshsboard.advancedannouncement
+ */
 WCF.AdvancedAnnouncement = {};
 
+/**
+ * Handles clicks on 'dismiss'-button to hide announcements.
+ */
 WCF.AdvancedAnnouncement.Dismiss = Class.extend({
 	/**
 	 * action proxy

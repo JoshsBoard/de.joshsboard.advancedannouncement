@@ -28,6 +28,15 @@ class AdvancedAnnouncement extends DatabaseObject {
 	 */
 	protected static $databaseTableIndexName = 'advancedannouncementID';
 
+	/**
+	 * check, whether the announcement is displayed to the current user
+	 * 
+	 * @param \wcf\data\user\User		$user
+	 * @param boolean			$site
+	 * @param \wcf\page\AbstractPage	$siteObject
+	 * @param boolean			$ignoreSite
+	 * @return boolean
+	 */
 	public function display(User $user = null, $site = null, AbstractPage $siteObject = null, $ignoreSite = true) {
 		if ($user === null) $user = WCF::getUser(); 
 		
@@ -207,12 +216,22 @@ class AdvancedAnnouncement extends DatabaseObject {
 		return true; 
 	}
 	
+	/**
+	 * parse an announcement-box
+	 * 
+	 * @return string
+	 */
 	public function parse() {
 		WCF::getTPL()->assign('announcement', $this);
 		
 		return WCF::getTPL()->fetch('advancedAnnouncement');
 	}
 	
+	/**
+	 * parse the content
+	 * 
+	 * @return string
+	 */
 	public function getContent() {
 		return MessageParser::getInstance()->parse(WCF::getLanguage()->get($this->content), $this->allowSmileys, $this->allowHTML, $this->parseBBCodes, false);
 	}

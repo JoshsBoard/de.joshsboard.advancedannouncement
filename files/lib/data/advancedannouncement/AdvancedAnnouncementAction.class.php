@@ -9,10 +9,10 @@ use wcf\system\WCF;
 use wcf\data\user\UserEditor;
 
 /**
- * Provides functions to handle premium-groups.
+ * Provides functions to handle advanced-announcements.
  * 
  * @author	Joshua Rüsweg
- * @package	de.joshsboard.jcoins
+ * @package	de.joshsboard.advancedannouncement
  */
 class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements IToggleAction {
 
@@ -49,6 +49,9 @@ class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements
 		}
 	}
 
+	/**
+	 * validate the dismiss-action
+	 */
 	public function validateDismiss() {
 		if (empty($this->objects)) {
 			$this->readObjects();
@@ -60,6 +63,9 @@ class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements
 		}
 	}
 
+	/**
+	 * dismiss an announcement to hide it from the user
+	 */
 	public function dismiss() {
 		$ids = unserialize(WCF::getUser()->advancedannouncement);
 		

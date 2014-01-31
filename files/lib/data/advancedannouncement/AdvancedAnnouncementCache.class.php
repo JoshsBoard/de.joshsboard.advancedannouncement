@@ -4,10 +4,10 @@ namespace wcf\data\advancedannouncement;
 use wcf\system\cache\builder\AdvancedAnnouncementCacheBuilder;
 
 /**
- * Manages the premium cache
+ * Manages the advanced-announcement cache
  * 
  * @author         Joshua Rüsweg
- * @package        de.joshsboard.jcoins
+ * @package        de.joshsboard.advancedannouncement
  */
 class AdvancedAnnouncementCache extends \wcf\system\SingletonFactory {
 	/**
@@ -26,8 +26,8 @@ class AdvancedAnnouncementCache extends \wcf\system\SingletonFactory {
 	/**
          * Returns a specific group
          * 
-         * @param        integer                $groupID
-         * @return        wcf\data\user\group\premium\UserGroupPremium
+         * @param        integer	$announcementID
+         * @return       wcf\data\advancedannouncement\advancedAnnouncement
          */
 	public function getAnnouncement($announcementID) {
 		if (isset($this->announcements[$announcementID]))
@@ -37,10 +37,9 @@ class AdvancedAnnouncementCache extends \wcf\system\SingletonFactory {
 	}
 	
 	/**
-         * Returns all groups
+         * Returns all announcements
          * 
-         * @param        integer                $groupID
-         * @return        array<wcf\data\user\group\premium\UserGroupPremium>
+         * @return        array<wcf\data\advancedannouncement\advancedAnnouncement>
          */
 	public function getAnnouncements() {
 		return $this->announcements; 

@@ -5,10 +5,10 @@ use wcf\data\DatabaseObjectEditor;
 use wcf\system\cache\builder\AdvancedAnnouncementCacheBuilder; 
 
 /**
- * Provides functions to edit statements.
+ * Provides functions to edit advanced-announcements.
  * 
  * @author	Joshua Rüsweg
- * @package	de.joshsboard.jcoins
+ * @package	de.joshsboard.advancedannouncement
  */
 class AdvancedAnnouncementEditor extends DatabaseObjectEditor implements \wcf\data\IEditableCachedObject {
 
@@ -18,7 +18,7 @@ class AdvancedAnnouncementEditor extends DatabaseObjectEditor implements \wcf\da
 	protected static $baseClass = 'wcf\data\advancedannouncement\AdvancedAnnouncement';
 
 	/**
-	 * clears the premium-group cache
+	 * clears the advanced announcement cache
 	 */
 	public static function resetCache() {
 		AdvancedAnnouncementCacheBuilder::getInstance()->reset(); 

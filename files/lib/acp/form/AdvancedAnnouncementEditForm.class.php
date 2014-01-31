@@ -9,10 +9,10 @@ use wcf\data\advancedannouncement\AdvancedAnnouncementAction;
 use wcf\system\language\I18nHandler; 
 
 /**
- * Shows the premium-group edit-form.
- * 
+ * Shows the advanced-announcemets edit-form.
+ *
  * @author	Joshua Rüsweg
- * @package	de.joshsboard.jcoins
+ * @package	de.joshsboard.advancedannouncements
  * @subpackage	acp.form
  */
 class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {

@@ -4,11 +4,11 @@ namespace wcf\system\cache\builder;
 use wcf\data\advancedannouncement\AdvancedAnnouncementList;
 
 /**
- * Caches the Premium groups
+ * Caches the announcements
  * 
  * @author         Joshua Rüsweg
- * @package        de.joshsboard. // @TODO
- * @subpackage        system.cache.builder
+ * @package        de.joshsboard.advancedannouncement
+ * @subpackage     system.cache.builder
  */
 class AdvancedAnnouncementCacheBuilder extends \wcf\system\cache\builder\AbstractCacheBuilder {
         /**

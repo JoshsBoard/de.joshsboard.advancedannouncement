@@ -20,36 +20,22 @@
 	
 	<instructions type="install">
 		<instruction type="file">files.tar</instruction>
+                <instruction type="acpTemplate">acptemplates.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
-		<instruction type="acpTemplate">acptemplates.tar</instruction>
 		 
 		<!-- sql -->
 		<instruction type="sql">install.sql</instruction>
                 
 		<!-- xml -->
+                <instruction type="userGroupOption">userGroupOption.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="eventListener">events.xml</instruction>
 		<instruction type="acpMenu">acpMenu.xml</instruction>
-		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 		
 		<!-- lng -->
 		<instruction type="language">lang/*.xml</instruction>
+                
 		<!-- add example announcement -->
 		<instruction type="script">acp/aa_setup.php</instruction>
-	</instructions>
-	
-	<instructions type="update" fromversion="1.0.0 Alpha *">
-		<instruction type="file">files.tar</instruction>
-		<instruction type="template">templates.tar</instruction>
-		<instruction type="acpTemplate">acptemplates.tar</instruction>
-                
-		<!-- xml -->
-		<instruction type="templateListener">templateListener.xml</instruction>
-		<instruction type="eventListener">events.xml</instruction>
-		<instruction type="acpMenu">acpMenu.xml</instruction>
-		<instruction type="userGroupOption">userGroupOption.xml</instruction>
-		
-		<!-- lng -->
-		<instruction type="language">lang/*.xml</instruction>
 	</instructions>
 </package>
