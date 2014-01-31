@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.advancedannouncement"><![CDATA[Erweiterte Ankündigungen]]></item>
+		<item name="wcf.acp.menu.link.advancedannouncement.list"><![CDATA[Ankündigungen auflisten]]></item>
+		<item name="wcf.acp.menu.link.advancedannouncement.add"><![CDATA[Ankündigung hinzufügen]]></item>
+	</category>
+	
+	<category name="wcf.acp.advancedannouncements">
+		<item name="wcf.acp.advancedannouncements.title"><![CDATA[Erweiterte Ankündigungen]]></item>
+		<item name="wcf.acp.advancedannouncements.add"><![CDATA[Ankündigung hinzufügen]]></item>
+		<item name="wcf.acp.advancedannouncements.edit"><![CDATA[Ankündigung bearbeiten]]></item>
+		<item name="wcf.acp.advancedannouncements.priority"><![CDATA[Priorität]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.timeisyoungerthan"><![CDATA[Startdatum]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.timeisyoungerthan.description"><![CDATA[Geben Sie hier, falls gewünscht, bitte ein Datum, im Format dd-mm-YYYY HH:ii, an, <strong>ab wann</strong> die Ankündigung angezeigt werden soll.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.timeisolderthan"><![CDATA[Verfallsdatum]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.timeisolderthan.description"><![CDATA[Geben Sie hier, falls gewünscht, bitte ein Datum, im Format dd-mm-YYYY HH:ii, an, <strong>bis wann</strong> die Ankündigung angezeigt werden soll.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.settings"><![CDATA[Einstellungen]]></item>
+		<item name="wcf.acp.advancedannouncements.name"><![CDATA[Name]]></item>
+		<item name="wcf.acp.advancedannouncements.removable"><![CDATA[Diese Ankündigung kann vom Benutzer ausgeblendet werden]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria"><![CDATA[Kriterien]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.hasbirthday"><![CDATA[Benutzer hat Geburtstag]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.minactivitypoints"><![CDATA[Mindestanzahl an Aktivitätspunkten]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.maxactivitypoints"><![CDATA[Maximalanzahl an Aktivitätspunkten]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.noavatar"><![CDATA[Benutzer hat keinen Avatar]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsite"><![CDATA[Benutzer surft auf bestimmten Seite]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsitesites"><![CDATA[Seitenspezifische Anzeige]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsitesites.description"><![CDATA[Geben Sie hier alle Seiten an, auf denen die Ankündigung angezeigt werden soll. Jede Seite muss in eine neue Zeile eingetragen werden. Möchten Sie beispielsweise eine Ankündigung im Impressum anzeigen lassen, geben Sie bitte "LegalNotice" an. Diese angaben werden nur beachtet, wenn die Option "Seitenspezifische Anzeige" aktiviert wurde.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.objectid"><![CDATA[Seiten mit der ObjectID]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.objectid.description"><![CDATA[Geben Sie an, welche ObjectID die aufgerufene Seiten haben soll, damit die Ankündigung angezeigt wird. Soll dieses Kriteritum ignoriert werden, lassen Sie dieses Feld leer. Mehrere Werte können per Komma getrennt eingegeben werden.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjectid"><![CDATA[Seiten mit der ParentObjectID]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjectid.description"><![CDATA[Geben Sie an, welche ParentObjectID die aufgerufene Seiten haben soll, damit die Ankündigung angezeigt wird. Soll dieses Kriteritum ignoriert werden, lassen Sie dieses Feld leer. Mehrere Werte können per Komma getrennt eingegeben werden.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.objecttype"><![CDATA[Seiten mit dem ObjectType]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.objecttype.description"><![CDATA[Geben Sie an, welche ObjectType die aufgerufene Seiten haben soll, damit die Ankündigung angezeigt wird. Soll dieses Kriteritum ignoriert werden, lassen Sie dieses Feld leer. Mehrere Werte können per Komma getrennt eingegeben werden.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjecttype"><![CDATA[Seiten mit dem ParentObjectType]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjecttype.description"><![CDATA[Geben Sie an, welche ParentObjectType die aufgerufene Seiten haben soll, damit die Ankündigung angezeigt wird. Soll dieses Kriteritum ignoriert werden, lassen Sie dieses Feld leer. Mehrere Werte können per Komma getrennt eingegeben werden.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.inusergroup"><![CDATA[Benutzer ist in folgenden Benutzergruppen]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.notinusergroup"><![CDATA[Benutzer ist nicht in folgenden Benutzergruppen]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.timeisolderthan.notvalid"><![CDATA[Das Datum war nicht valid.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.notmatter"><![CDATA[Egal]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.true"><![CDATA[Trifft zu]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.false"><![CDATA[Trifft nicht zu]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.onsite.nomatter"><![CDATA[Ankündigung auf allen Seiten anzeigen]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsite.false"><![CDATA[Ankündigung auf den unten angegeben Seiten nicht anzeigen]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsite.true"><![CDATA[Ankündigung nur auf den unten angegeben Seiten anzeigen]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.content"><![CDATA[Inhalt]]></item>
+		<item name="wcf.acp.advancedannouncements.parsebbcodes"><![CDATA[BBCodes erlauben]]></item>
+		<item name="wcf.acp.advancedannouncements.allowhtml"><![CDATA[HTML erlauben]]></item>
+		<item name="wcf.acp.advancedannouncements.allowSmileys"><![CDATA[Smileys erlauben]]></item>
+		<item name="wcf.acp.advancedannouncements.noannouncements"><![CDATA[Es sind momentan keine globalen Ankündigungen vorhanden.]]></item>
+		<item name="wcf.acp.advancedannouncements.style"><![CDATA[Style]]></item>
+		<item name="wcf.acp.advancedannouncements.additionalstyleclasses"><![CDATA[CSS-Klassen]]></item>
+		<item name="wcf.acp.advancedannouncements.additionalstyleclasses.description"><![CDATA[Trage hier CSS-Klassen ein, welche der Ankündigungsbox zugewiesen werden sollen. Getrennt werden können verschiedene Klassen mit Leerzeichen. Um beispielsweise eine Hinweisbox anzuzeigen, trage "info" ein. Möchtest du eine Warnungsbox anzeigen musst du "warning" eintragen.]]></item>
+	</category>
+	
+	<category name="wcf.advancedannouncements">
+		<item name="wcf.advancedannouncements.content1"><![CDATA[Dies ist eine Beispiel-Ankündigung, welche nur Administratoren sehen. Du kannst diese Ankündigung im Administrationspanal unter Inhalt -> Ankündiungen bearbeiten oder löschen.\n\nFindest du einen Fehler oder benötigst noch Hilfe bei einstellen dieses Plugins, kannst du dich in meinem [url=http://www.joshsboard.de/]Support-Forum[/url] melden.\n\nBeste Grüße und viel Spaß mit dem Plugin\n\n[url=https://www.woltlab.com/index.php/User/1349209-Josh/]Joshua Rüsweg[/url]]]></item>
+	</category>
+	
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.category.admin.content.advancedannouncement"><![CDATA[Erweiterte Ankündigungen]]></item>
+		<item name="wcf.acp.group.option.admin.advancedannouncement.canManage"><![CDATA[Kann Erweiterte Ankündigungen verwalten]]></item>
+	</category>
+</language>

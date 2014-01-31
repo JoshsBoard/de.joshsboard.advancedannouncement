@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en" languagename="English" countrycode="en">
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.advancedannouncement"><![CDATA[Advanced Announcements]]></item>
+		<item name="wcf.acp.menu.link.advancedannouncement.list"><![CDATA[List Announcements]]]]></item>
+		<item name="wcf.acp.menu.link.advancedannouncement.add"><![CDATA[Add Announcement]]></item>
+	</category>
+	
+	<category name="wcf.acp.advancedannouncements">
+		<item name="wcf.acp.advancedannouncements.title"><![CDATA[Advanced Announcements]]></item>
+		<item name="wcf.acp.advancedannouncements.add"><![CDATA[Add Announcement]]></item>
+		<item name="wcf.acp.advancedannouncements.edit"><![CDATA[Edit Announcement]]></item>
+		<item name="wcf.acp.advancedannouncements.priority"><![CDATA[priority]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.timeisyoungerthan"><![CDATA[start Date]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.timeisyoungerthan.description"><![CDATA[Enter here if you would like a date in the format dd-mm-YYYY HH:ii, to, <strong>from when</strong> to be the announcement appears.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.timeisolderthan"><![CDATA[expiration date]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.timeisolderthan.description"><![CDATA[Enter here if you would like a date in the format dd-mm-YYYY HH:ii, to, <strong>from when</strong> to be the announcement appears.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.settings"><![CDATA[Settings]]></item>
+		<item name="wcf.acp.advancedannouncements.name"><![CDATA[Name]]></item>
+		<item name="wcf.acp.advancedannouncements.removable"><![CDATA[This announcement can be hidden from the user]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria"><![CDATA[Criteria]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.hasbirthday"><![CDATA[User has Birthday]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.minactivitypoints"><![CDATA[Minimum number of activity points]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.maxactivitypoints"><![CDATA[Maximum number of activity points]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.noavatar"><![CDATA[User has no avatar]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsite"><![CDATA[User surfs on specific page]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsitesites"><![CDATA[Page-specific display]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsitesites.description"><![CDATA[Enter all pages on which the notice is to be displayed. Each page must be entered on a new line. For example, to display a notice in the imprint, please enter "Legal Notice" of. These details are also taken into account only if the option "Page specific display" was enabled.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.objectid"><![CDATA[Pages with the ObjectID]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.objectid.description"><![CDATA[Specify which ObjectID should have the pages viewed, so that the announcement is displayed. If this criteria should be ignored, leave this field blank. Multiple values ​​can be entered separated by commas.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjectid"><![CDATA[Pages with the ParentObjectID]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjectid.description"><![CDATA[Specify which ParentObjectID should have the pages viewed, so that the announcement is displayed. If this criteria should be ignored, leave this field blank. Multiple values ​​can be entered separated by commas.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.objecttype"><![CDATA[Pages with the ObjectType]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.objecttype.description"><![CDATA[Specify which ObjectType should have the pages viewed, so that the announcement is displayed. If this criteria should be ignored, leave this field blank. Multiple values ​​can be entered separated by commas.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjecttype"><![CDATA[Pages with the ParentObjectType]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.parentobjecttype.description"><![CDATA[Specify which ParentObjectID should have the pages viewed, so that the announcement is displayed. If this criteria should be ignored, leave this field blank. Multiple values ​​can be entered separated by commas.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.inusergroup"><![CDATA[User is in the following user groups]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.notinusergroup"><![CDATA[User is <strong>not</strong> in the following user groups]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.timeisolderthan.notvalid"><![CDATA[The date was not valid.]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.notmatter"><![CDATA[Doesn't matter]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.true"><![CDATA[applies to]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.false"><![CDATA[Does not apply]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.criteria.onsite.nomatter"><![CDATA[Display announcement on all sides]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsite.false"><![CDATA[Do not display announcement on the pages indicated below]]></item>
+		<item name="wcf.acp.advancedannouncements.criteria.onsite.true"><![CDATA[Display announcement only on the pages indicated below]]></item>
+		
+		<item name="wcf.acp.advancedannouncements.content"><![CDATA[Content]]></item>
+		<item name="wcf.acp.advancedannouncements.parsebbcodes"><![CDATA[Allow BBCodes]]></item>
+		<item name="wcf.acp.advancedannouncements.allowhtml"><![CDATA[Allow HTML]]></item>
+		<item name="wcf.acp.advancedannouncements.allowSmileys"><![CDATA[Allow Smileys]]></item>
+		<item name="wcf.acp.advancedannouncements.noannouncements"><![CDATA[There are currently no global announcements yet.]]></item>
+		<item name="wcf.acp.advancedannouncements.style"><![CDATA[Style]]></item>
+		<item name="wcf.acp.advancedannouncements.additionalstyleclasses"><![CDATA[CSS-Classes]]></item>
+		<item name="wcf.acp.advancedannouncements.additionalstyleclasses.description"><![CDATA[Insert here the CSS classes that are to be assigned to the advanced notice. Can be separated different classes with spaces. Example, to display a message box, put "info" field. Would you have to display a warning dialog you "warning" Enter.]]></item>
+	</category>
+	
+	<category name="wcf.advancedannouncements">
+		<item name="wcf.advancedannouncements.content1"><![CDATA[This is a sample notice that only administrators can see. You can edit this announcement in the Administrationpanal under the item Content -> Advanced Announcements.\n\nBest regards and have fun with the plugin\n\n[url=https://www.woltlab.com/index.php/User/1349209-Josh/]Joshua Rüsweg[/url]]]></item>
+	</category>
+	
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.category.admin.content.advancedannouncement"><![CDATA[Advanced Announcements]]></item>
+		<item name="wcf.acp.group.option.admin.advancedannouncement.canManage"><![CDATA[Can manage Advanced Announcements]]></item>
+	</category>
+</language>
