@@ -11,7 +11,7 @@ use wcf\system\WCF;
 use wcf\util\StringUtil;
 
 /**
- * Shows the advanced-announcemets add-form.
+ * Shows the advanced-announcemets add-form
  *
  * @author	Joshua Rüsweg
  * @package	de.joshsboard.advancedannouncements

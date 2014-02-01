@@ -1,11 +1,9 @@
 <?php
 namespace wcf\system\event\listener;
 
-use wcf\system\event\IEventListener;
-use wcf\system\exception\UserInputException;
-use wcf\system\WCF;
-use wcf\util\StringUtil;
 use wcf\data\advancedannouncement\AdvancedAnnouncementCache; 
+use wcf\system\event\IEventListener;
+use wcf\system\WCF;
 
 /**
  * Adds jCoins mass processsing
@@ -23,7 +21,7 @@ class AddAnnouncementsListener implements IEventListener {
 		
 		$active_announcements = array(); 
 		
-		foreach ($announcements AS $announcement) {
+		foreach ($announcements as $announcement) {
 			
 			// cut off namespace
 			if (preg_match('@\\\\([\w]+)$@', $className, $matches)) {
@@ -36,7 +34,7 @@ class AddAnnouncementsListener implements IEventListener {
 		}
 		
 		WCF::getTPL()->assign(array(
-		    'aa_active_announcements' => $active_announcements
+			'aa_active_announcements' => $active_announcements
 		));
 	}
 }

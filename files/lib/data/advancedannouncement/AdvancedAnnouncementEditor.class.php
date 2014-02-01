@@ -2,6 +2,7 @@
 namespace wcf\data\advancedannouncement; 
 
 use wcf\data\DatabaseObjectEditor;
+use wcf\data\IEditableCachedObject; 
 use wcf\system\cache\builder\AdvancedAnnouncementCacheBuilder; 
 
 /**
@@ -10,7 +11,7 @@ use wcf\system\cache\builder\AdvancedAnnouncementCacheBuilder;
  * @author	Joshua Rüsweg
  * @package	de.joshsboard.advancedannouncement
  */
-class AdvancedAnnouncementEditor extends DatabaseObjectEditor implements \wcf\data\IEditableCachedObject {
+class AdvancedAnnouncementEditor extends DatabaseObjectEditor implements IEditableCachedObject {
 
 	/**
 	 * @see	wcf\data\DatabaseObjectDecorator::$baseClass

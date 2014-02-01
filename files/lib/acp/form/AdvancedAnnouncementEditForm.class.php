@@ -1,12 +1,11 @@
 <?php
-
 namespace wcf\acp\form;
 
-use wcf\system\exception\IllegalLinkException;
-use wcf\system\WCF;
 use wcf\data\advancedannouncement\AdvancedAnnouncement;
-use wcf\data\advancedannouncement\AdvancedAnnouncementAction; 
-use wcf\system\language\I18nHandler; 
+use wcf\data\advancedannouncement\AdvancedAnnouncementAction;
+use wcf\system\exception\IllegalLinkException;
+use wcf\system\language\I18nHandler;
+use wcf\system\WCF;
 
 /**
  * Shows the advanced-announcemets edit-form.
@@ -26,7 +25,7 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 	 * @see \wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('admin.advancedannouncement.canManage');
-	
+
 	/**
 	 * AdvancedAnnouncement
 	 * @var	wcf\data\advancedannouncement\AdvancedAnnouncement
@@ -61,8 +60,8 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 
 		if (empty($_POST)) {
 			I18nHandler::getInstance()->setOptions('aa_content', PACKAGE_ID, $this->advancedAnnouncement->content, 'wcf.advancedannouncements.content\d+');
-			
-			$this->name = $this->advancedAnnouncement->name; 
+
+			$this->name = $this->advancedAnnouncement->name;
 			$this->removable = (bool) $this->advancedAnnouncement->removable;
 			$this->inUserGroup = (is_array(unserialize($this->advancedAnnouncement->inUserGroup))) ? unserialize($this->advancedAnnouncement->inUserGroup) : array();
 			$this->notInUserGroup = (is_array(unserialize($this->advancedAnnouncement->notInUserGroup))) ? unserialize($this->advancedAnnouncement->notInUserGroup) : array();
@@ -91,7 +90,7 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 	 * @see	\wcf\form\IForm::save()
 	 */
 	public function save() {
-		
+
 		$content = 'wcf.advancedannouncements.content' . $this->advancedAnnouncement->getObjectID();
 		if (I18nHandler::getInstance()->isPlainValue('aa_content')) {
 			I18nHandler::getInstance()->remove($content);
@@ -99,7 +98,7 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 		} else {
 			I18nHandler::getInstance()->save('aa_content', $content, 'wcf.advancedannouncements');
 		}
-		
+
 		$this->objectAction = new AdvancedAnnouncementAction(array($this->advancedAnnouncement), 'update', array(
 		    'data' => array(
 			'name' => $this->name,
@@ -126,7 +125,7 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 			'additionalStyleClasses' => $this->additionalStyleClasses
 		    )
 		));
-		$this->objectAction->validateAction(); 
+		$this->objectAction->validateAction();
 		$this->objectAction->executeAction();
 
 		// show success
@@ -140,7 +139,7 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 		parent::assignVariables();
 
 		I18nHandler::getInstance()->assignVariables(!empty($_POST));
-		
+
 		WCF::getTPL()->assign('advancedAnnouncement', $this->advancedAnnouncement);
 	}
 

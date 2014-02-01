@@ -2,13 +2,14 @@
 namespace wcf\data\advancedannouncement;
 
 use wcf\data\DatabaseObject;
+use wcf\data\user\avatar\DefaultAvatar;
 use wcf\data\user\User; 
 use wcf\data\user\UserEditor;
 use wcf\data\user\UserProfile; 
+use wcf\page\AbstractPage; 
+use wcf\system\bbcode\MessageParser; 
 use wcf\system\WCF; 
 use wcf\util\DateUtil; 
-use wcf\system\bbcode\MessageParser; 
-use wcf\page\AbstractPage; 
 
 /**
  * Represents a advanced Announcement in the database.
@@ -60,18 +61,16 @@ class AdvancedAnnouncement extends DatabaseObject {
 			}
 		}
 		
-		
-		
 		// check wheather an avatar is required
 		if ($this->noAvatar != -1) {
 			$userProfile = new UserProfile($user); 
 			// @TODO
 			if ($this->noAvatar) {
-				if (!($userProfile->getAvatar() instanceof \wcf\data\user\avatar\DefaultAvatar)) {
+				if (!($userProfile->getAvatar() instanceof DefaultAvatar)) {
 					return false; 
 				}
 			} else {
-				if ($userProfile->getAvatar() instanceof \wcf\data\user\avatar\DefaultAvatar) {
+				if ($userProfile->getAvatar() instanceof DefaultAvatar) {
 					return false; 
 				}
 			}
@@ -107,19 +106,18 @@ class AdvancedAnnouncement extends DatabaseObject {
 		$userGroups = unserialize($this->inUserGroup); 
 
 		if (is_array($userGroups) && !empty($userGroups)) {
-			foreach ($userGroups AS $groupID) {
+			foreach ($userGroups as $groupID) {
 				if (!in_array($groupID, $user->getGroupIDs())) {
 					return false; 
 				}
 			} 
 		}
 		
-		
 		// check is NOT in usergroup
 		$userGroups = unserialize($this->notInUserGroup); 
 
 		if (is_array($userGroups) && !empty($userGroups)) {
-			foreach ($userGroups AS $groupID) {
+			foreach ($userGroups as $groupID) {
 				if (in_array($groupID, $user->getGroupIDs())) {
 					return false; 
 				}

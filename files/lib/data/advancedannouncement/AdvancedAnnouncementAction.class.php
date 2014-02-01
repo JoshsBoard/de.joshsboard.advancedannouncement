@@ -4,9 +4,9 @@ namespace wcf\data\advancedannouncement;
 
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\data\IToggleAction;
+use wcf\data\user\UserEditor;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\WCF;
-use wcf\data\user\UserEditor;
 
 /**
  * Provides functions to handle advanced-announcements.
@@ -44,7 +44,7 @@ class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements
 	public function toggle() {
 		foreach ($this->objects as $aa) {
 			$aa->update(array(
-			    'isDisabled' => ($aa->isDisabled ? 0 : 1)
+				'isDisabled' => ($aa->isDisabled ? 0 : 1)
 			));
 		}
 	}
@@ -68,17 +68,17 @@ class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements
 	 */
 	public function dismiss() {
 		$ids = unserialize(WCF::getUser()->advancedannouncement);
-		
+
 		if (!is_array($ids)) {
-			$ids = array(); 
+			$ids = array();
 		}
-		
+
 		foreach ($this->objects as $aa) {
-			$ids[] = $aa->getObjectID(); 
+			$ids[] = $aa->getObjectID();
 		}
-		
+
 		$ids = array_unique($ids);
-		
+
 		$userEditor = new UserEditor(WCF::getUser());
 		$userEditor->update(array(
 			'advancedannouncement' => serialize($ids)
