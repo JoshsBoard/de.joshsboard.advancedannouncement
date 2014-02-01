@@ -100,30 +100,30 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 		}
 
 		$this->objectAction = new AdvancedAnnouncementAction(array($this->advancedAnnouncement), 'update', array(
-		    'data' => array(
-			'name' => $this->name,
-			'removable' => ($this->removable) ? 1 : 0,
-			'inUserGroup' => serialize($this->inUserGroup),
-			'notInUserGroup' => serialize($this->notInUserGroup),
-			'hasBirthday' => $this->hasBirthday,
-			'minActivityPoints' => $this->minActivityPoints,
-			'maxActivityPoints' => $this->maxActivityPoints,
-			'noAvatar' => $this->noAvatar,
-			'onSite' => $this->onSite,
-			'onSiteSites' => serialize($this->onSiteSites),
-			'timeIsOlderThan' => $this->timeIsOlderThan,
-			'timeIsYoungerThan' => $this->timeIsYoungerThan,
-			'priority' => $this->priority,
-			'objectID' => serialize($this->objectID),
-			'parentObjectID' => serialize($this->parentObjectID),
-			'objectType' => serialize($this->objectType),
-			'parentObjectType' => serialize($this->parentObjectType),
-			'content' => $content,
-			'parseBBCodes' => ($this->parseBBCodes) ? 1 : 0,
-			'allowHTML' => ($this->allowHTML) ? 1 : 0,
-			'allowSmileys' => ($this->allowSmileys) ? 1 : 0,
-			'additionalStyleClasses' => $this->additionalStyleClasses
-		    )
+			'data' => array(
+				'name' => $this->name,
+				'removable' => ($this->removable) ? 1 : 0,
+				'inUserGroup' => serialize($this->inUserGroup),
+				'notInUserGroup' => serialize($this->notInUserGroup),
+				'hasBirthday' => $this->hasBirthday,
+				'minActivityPoints' => $this->minActivityPoints,
+				'maxActivityPoints' => $this->maxActivityPoints,
+				'noAvatar' => $this->noAvatar,
+				'onSite' => $this->onSite,
+				'onSiteSites' => serialize($this->onSiteSites),
+				'timeIsOlderThan' => $this->timeIsOlderThan,
+				'timeIsYoungerThan' => $this->timeIsYoungerThan,
+				'priority' => $this->priority,
+				'objectID' => serialize($this->objectID),
+				'parentObjectID' => serialize($this->parentObjectID),
+				'objectType' => serialize($this->objectType),
+				'parentObjectType' => serialize($this->parentObjectType),
+				'content' => $content,
+				'parseBBCodes' => ($this->parseBBCodes) ? 1 : 0,
+				'allowHTML' => ($this->allowHTML) ? 1 : 0,
+				'allowSmileys' => ($this->allowSmileys) ? 1 : 0,
+				'additionalStyleClasses' => $this->additionalStyleClasses
+			)
 		));
 		$this->objectAction->validateAction();
 		$this->objectAction->executeAction();

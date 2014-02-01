@@ -322,30 +322,30 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		parent::save();
 
 		$this->objectAction = new AdvancedAnnouncementAction(array(), 'create', array(
-		    'data' => array(
-			'name' => $this->name,
-			'removable' => ($this->removable) ? 1 : 0,
-			'inUserGroup' => serialize($this->inUserGroup),
-			'notInUserGroup' => serialize($this->notInUserGroup),
-			'hasBirthday' => $this->hasBirthday,
-			'minActivityPoints' => $this->minActivityPoints,
-			'maxActivityPoints' => $this->maxActivityPoints,
-			'noAvatar' => $this->noAvatar,
-			'onSite' => $this->onSite,
-			'onSiteSites' => serialize($this->onSiteSites),
-			'timeIsOlderThan' => $this->timeIsOlderThan,
-			'timeIsYoungerThan' => $this->timeIsYoungerThan,
-			'priority' => $this->priority,
-			'objectID' => serialize($this->objectID),
-			'parentObjectID' => serialize($this->parentObjectID),
-			'objectType' => serialize($this->objectType),
-			'parentObjectType' => serialize($this->parentObjectType),
-			'content' => I18nHandler::getInstance()->isPlainValue('aa_content') ? I18nHandler::getInstance()->getValue('aa_content') : '',
-			'parseBBCodes' => ($this->parseBBCodes) ? 1 : 0,
-			'allowHTML' => ($this->allowHTML) ? 1 : 0,
-			'allowSmileys' => ($this->allowSmileys) ? 1 : 0,
-			'additionalStyleClasses' => $this->additionalStyleClasses
-		    )
+			'data' => array(
+				'name' => $this->name,
+				'removable' => ($this->removable) ? 1 : 0,
+				'inUserGroup' => serialize($this->inUserGroup),
+				'notInUserGroup' => serialize($this->notInUserGroup),
+				'hasBirthday' => $this->hasBirthday,
+				'minActivityPoints' => $this->minActivityPoints,
+				'maxActivityPoints' => $this->maxActivityPoints,
+				'noAvatar' => $this->noAvatar,
+				'onSite' => $this->onSite,
+				'onSiteSites' => serialize($this->onSiteSites),
+				'timeIsOlderThan' => $this->timeIsOlderThan,
+				'timeIsYoungerThan' => $this->timeIsYoungerThan,
+				'priority' => $this->priority,
+				'objectID' => serialize($this->objectID),
+				'parentObjectID' => serialize($this->parentObjectID),
+				'objectType' => serialize($this->objectType),
+				'parentObjectType' => serialize($this->parentObjectType),
+				'content' => I18nHandler::getInstance()->isPlainValue('aa_content') ? I18nHandler::getInstance()->getValue('aa_content') : '',
+				'parseBBCodes' => ($this->parseBBCodes) ? 1 : 0,
+				'allowHTML' => ($this->allowHTML) ? 1 : 0,
+				'allowSmileys' => ($this->allowSmileys) ? 1 : 0,
+				'additionalStyleClasses' => $this->additionalStyleClasses
+			)
 		));
 		$returnValues = $this->objectAction->executeAction();
 
@@ -414,28 +414,28 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		I18nHandler::getInstance()->assignVariables();
 
 		WCF::getTPL()->assign(array(
-		    'name' => $this->name,
-		    'removable' => ($this->removable) ? 1 : 0,
-		    'inUserGroup' => $this->inUserGroup,
-		    'notInUserGroup' => $this->notInUserGroup,
-		    'hasBirthday' => $this->hasBirthday,
-		    'minActivityPoints' => $this->minActivityPoints,
-		    'maxActivityPoints' => $this->maxActivityPoints,
-		    'noAvatar' => $this->noAvatar,
-		    'onSite' => $this->onSite,
-		    'onSiteSites' => $this->onSiteSites,
-		    'timeIsOlderThan' => $this->timeIsOlderThan,
-		    'timeIsYoungerThan' => $this->timeIsYoungerThan,
-		    'priority' => $this->priority,
-		    'objectID' => $this->objectID,
-		    'parentObjectID' => $this->parentObjectID,
-		    'objectType' => $this->objectType,
-		    'parentObjectType' => $this->parentObjectType,
-		    'parseBBCodes' => ($this->parseBBCodes) ? 1 : 0,
-		    'allowHTML' => ($this->allowHTML) ? 1 : 0,
-		    'allowSmileys' => ($this->allowSmileys) ? 1 : 0,
-		    'additionalStyleClasses' => $this->additionalStyleClasses,
-		    'groups' => $this->groups->getObjects()
+			'name' => $this->name,
+			'removable' => ($this->removable) ? 1 : 0,
+			'inUserGroup' => $this->inUserGroup,
+			'notInUserGroup' => $this->notInUserGroup,
+			'hasBirthday' => $this->hasBirthday,
+			'minActivityPoints' => $this->minActivityPoints,
+			'maxActivityPoints' => $this->maxActivityPoints,
+			'noAvatar' => $this->noAvatar,
+			'onSite' => $this->onSite,
+			'onSiteSites' => $this->onSiteSites,
+			'timeIsOlderThan' => $this->timeIsOlderThan,
+			'timeIsYoungerThan' => $this->timeIsYoungerThan,
+			'priority' => $this->priority,
+			'objectID' => $this->objectID,
+			'parentObjectID' => $this->parentObjectID,
+			'objectType' => $this->objectType,
+			'parentObjectType' => $this->parentObjectType,
+			'parseBBCodes' => ($this->parseBBCodes) ? 1 : 0,
+			'allowHTML' => ($this->allowHTML) ? 1 : 0,
+			'allowSmileys' => ($this->allowSmileys) ? 1 : 0,
+			'additionalStyleClasses' => $this->additionalStyleClasses,
+			'groups' => $this->groups->getObjects()
 		));
 	}
 

@@ -3,8 +3,8 @@
 namespace wcf\data\advancedannouncement;
 
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\data\IToggleAction;
 use wcf\data\user\UserEditor;
+use wcf\data\IToggleAction;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\WCF;
 

@@ -1,8 +1,8 @@
 <?php
 namespace wcf\data\advancedannouncement;
 
-use wcf\data\DatabaseObject;
 use wcf\data\user\avatar\DefaultAvatar;
+use wcf\data\DatabaseObject;
 use wcf\data\user\User; 
 use wcf\data\user\UserEditor;
 use wcf\data\user\UserProfile; 
