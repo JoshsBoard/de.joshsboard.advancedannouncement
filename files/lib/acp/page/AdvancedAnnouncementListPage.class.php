@@ -29,6 +29,6 @@ class AdvancedAnnouncementListPage extends SortablePage {
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$validSortFields
 	 */
-	public $validSortFields = array('logID', 'userID', 'time', 'state', 'sum');
+	public $validSortFields = array('advancedannouncementID', 'name', 'priority');
 
 }
