@@ -63,8 +63,15 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 
 			$this->name = $this->advancedAnnouncement->name;
 			$this->removable = (bool) $this->advancedAnnouncement->removable;
-			$this->inUserGroup = (is_array(unserialize($this->advancedAnnouncement->inUserGroup))) ? unserialize($this->advancedAnnouncement->inUserGroup) : array();
-			$this->notInUserGroup = (is_array(unserialize($this->advancedAnnouncement->notInUserGroup))) ? unserialize($this->advancedAnnouncement->notInUserGroup) : array();
+			
+			foreach ($this->advancedAnnouncement->getUserGroups() as $groupID => $type) {
+				if (AdvancedAnnouncement::GROUP_TYPE_INCLUDE == $type) {
+					$this->inUserGroup[] = $groupID; 
+				} else {
+					$this->notInUserGroup[] = $groupID;
+				}
+			}
+			
 			$this->hasBirthday = $this->advancedAnnouncement->hasBirthday;
 			$this->minActivityPoints = $this->advancedAnnouncement->minActivityPoints;
 			$this->maxActivityPoints = $this->advancedAnnouncement->maxActivityPoints;
@@ -100,7 +107,7 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 		}
 
 		$this->objectAction = new AdvancedAnnouncementAction(array($this->advancedAnnouncement), 'update', array(
-			'usergroups' => array($this->vgroups),
+			'usergroups' => $this->vgroups,
 			'data' => array(
 				'name' => $this->name,
 				'removable' => ($this->removable) ? 1 : 0,
@@ -124,7 +131,6 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 				'additionalStyleClasses' => $this->additionalStyleClasses
 			)
 		));
-		$this->objectAction->validateAction();
 		$this->objectAction->executeAction();
 
 		// show success

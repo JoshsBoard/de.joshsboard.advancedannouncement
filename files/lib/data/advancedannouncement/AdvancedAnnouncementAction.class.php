@@ -70,7 +70,7 @@ class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements
 		$create = parent::create();
 		
 		if (isset($this->parameters['usergroups'])) {
-			$stmt = WCF::getDB()->prepareStatement("INSERT INTO wcf1_advancedannouncement_groups (advancedannouncementID, groupID, type) VALUES ()");
+			$stmt = WCF::getDB()->prepareStatement("INSERT INTO wcf1_advancedannouncement_groups (advancedannouncementID, groupID, type) VALUES (?, ?, ?)");
 			
 			foreach ($this->parameters['usergroups'] as $groupID => $type) {
 				$stmt->execute(array(
@@ -118,9 +118,9 @@ class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements
 			foreach ($this->objects as $object) {
 				$aa = $object->getDecoratedObject(); 
 				
-				$groups = $aa->getGroups(); 
+				$groups = $aa->getUserGroups(); 
 				
-				$stmtC = WCF::getDB()->prepareStatement("INSERT INTO wcf1_advancedannouncement_groups (advancedannouncementID, groupID, type) VALUES ()");
+				$stmtC = WCF::getDB()->prepareStatement("INSERT INTO wcf1_advancedannouncement_groups (advancedannouncementID, groupID, type) VALUES (?, ?, ?)");
 				$stmtU = WCF::getDB()->prepareStatement("UPDATE wcf1_advancedannouncement_groups SET type = ? WHERE advancedannouncementID = ? AND groupID = ?");
 				
 				foreach ($this->parameters['usergroups'] as $groupID => $type) {
@@ -140,8 +140,6 @@ class AdvancedAnnouncementAction extends AbstractDatabaseObjectAction implements
 				}
 			}
 		}
-		
-		return $create; 
 	}
 
 

@@ -328,14 +328,14 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		foreach ($this->inUserGroup AS $group) {
 			$group = new UserGroup(intval($group)); 
 			if ($group->getObjectID() != 0) {
-				$this->vgroups[intval($group)] = AdvancedAnnouncement::GROUP_TYPE_INCLUDE;
+				$this->vgroups[$group->getObjectID()] = AdvancedAnnouncement::GROUP_TYPE_INCLUDE;
 			}
 		}
 		
 		foreach ($this->notInUserGroup AS $group) {
 			$group = new UserGroup(intval($group)); 
 			if ($group->getObjectID() != 0) {
-				$this->vgroups[intval($group)] = AdvancedAnnouncement::GROUP_TYPE_EXCLUDE; 
+				$this->vgroups[$group->getObjectID()] = AdvancedAnnouncement::GROUP_TYPE_EXCLUDE; 
 			}
 		}
 	}
@@ -347,7 +347,7 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		parent::save();
 
 		$this->objectAction = new AdvancedAnnouncementAction(array(), 'create', array(
-			'usergroups' => array($this->vgroups),
+			'usergroups' => $this->vgroups,
 			'data' => array(
 				'name' => $this->name,
 				'removable' => ($this->removable) ? 1 : 0,
