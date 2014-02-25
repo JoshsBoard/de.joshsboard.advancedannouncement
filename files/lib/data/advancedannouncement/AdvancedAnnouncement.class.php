@@ -231,6 +231,7 @@ class AdvancedAnnouncement extends DatabaseObject {
 	 * @return string
 	 */
 	public function getContent() {
+		MessageParser::getInstance()->setOutputType('text/html');
 		return MessageParser::getInstance()->parse(WCF::getLanguage()->get($this->content), $this->allowSmileys, $this->allowHTML, $this->parseBBCodes, false);
 	}
 }
