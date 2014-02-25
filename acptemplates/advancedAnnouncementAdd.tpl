@@ -41,7 +41,7 @@
 			<dl{if $errorField == 'removable'} class="formError"{/if}>
 				<dt></dt>
 				<dd>
-					<label for="removable"><input type="checkbox" name="removable" id="removable" value="1" {if $removable} checked="checked"{/if}/> {lang}wcf.acp.advancedannouncements.removable{/lang}</label>
+					<label for="removable"><input type="checkbox" name="removable" id="removable" value="1"{if $removable} checked="checked"{/if} /> {lang}wcf.acp.advancedannouncements.removable{/lang}</label>
 				</dd>
 			</dl>
 

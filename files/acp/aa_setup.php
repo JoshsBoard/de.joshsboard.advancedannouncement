@@ -4,11 +4,10 @@
  */
 
 $objectAction = new wcf\data\advancedannouncement\AdvancedAnnouncementAction(array(), 'create', array(
+	'usergroups' => array(array(4 => wcf\data\advancedannouncement\AdvancedAnnouncement::GROUP_TYPE_INCLUDE)),
 	'data' => array(
 		'name' => "Example-Announcement",
 		'removable' => 1,
-		'inUserGroup' => serialize(array(4)), // is the admin-group
-		'notInUserGroup' => serialize(array()),
 		'hasBirthday' => -1,
 		'minActivityPoints' => -1,
 		'maxActivityPoints' => -1,

@@ -1,11 +1,13 @@
 <?php
 namespace wcf\acp\form;
 
+use wcf\data\advancedannouncement\AdvancedAnnouncement; 
 use wcf\data\advancedannouncement\AdvancedAnnouncementAction;
 use wcf\data\advancedannouncement\AdvancedAnnouncementEditor;
 use wcf\data\user\group\UserGroupList;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
+use wcf\data\user\group\UserGroup; 
 use wcf\system\language\I18nHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
@@ -173,6 +175,12 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 	public $groups = null;
 
 	/**
+	 * the groups
+	 * @var array<string> 
+	 */
+	public $vgroups = array();
+	
+	/**
 	 * @see	\wcf\form\IForm::readFormParameters()
 	 */
 	public function readFormParameters() {
@@ -226,9 +234,10 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 			$this->additionalStyleClasses = $_POST['additionalStyleClasses'];
 
 		if (!is_array($this->notInUserGroup))
-			$this->parseTextToArray($this->notInUserGroup);
+			$this->notInUserGroup = array();
 		if (!is_array($this->inUserGroup))
-			$this->parseTextToArray($this->inUserGroup);
+			$this->inUserGroup = array();
+		
 		if (!is_array($this->onSiteSites))
 			$this->parseTextToArray($this->onSiteSites);
 
@@ -313,6 +322,22 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 				throw new UserInputException('timeIsOlderThan', 'notValid');
 			}
 		}
+		
+		
+		// we just ignore invalid groups
+		foreach ($this->inUserGroup AS $group) {
+			$group = new UserGroup(intval($group)); 
+			if ($group->getObjectID() != 0) {
+				$this->vgroups[intval($group)] = AdvancedAnnouncement::GROUP_TYPE_INCLUDE;
+			}
+		}
+		
+		foreach ($this->notInUserGroup AS $group) {
+			$group = new UserGroup(intval($group)); 
+			if ($group->getObjectID() != 0) {
+				$this->vgroups[intval($group)] = AdvancedAnnouncement::GROUP_TYPE_EXCLUDE; 
+			}
+		}
 	}
 
 	/**
@@ -322,11 +347,10 @@ class AdvancedAnnouncementAddForm extends AbstractForm {
 		parent::save();
 
 		$this->objectAction = new AdvancedAnnouncementAction(array(), 'create', array(
+			'usergroups' => array($this->vgroups),
 			'data' => array(
 				'name' => $this->name,
 				'removable' => ($this->removable) ? 1 : 0,
-				'inUserGroup' => serialize($this->inUserGroup),
-				'notInUserGroup' => serialize($this->notInUserGroup),
 				'hasBirthday' => $this->hasBirthday,
 				'minActivityPoints' => $this->minActivityPoints,
 				'maxActivityPoints' => $this->maxActivityPoints,

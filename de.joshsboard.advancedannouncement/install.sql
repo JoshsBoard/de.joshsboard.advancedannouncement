@@ -4,8 +4,6 @@ CREATE TABLE wcf1_advancedannouncement (
 	name				MEDIUMTEXT,
 	isDisabled			BOOLEAN			NOT NULL DEFAULT 0,
 	removable			BOOLEAN			NOT NULL DEFAULT 1,
-	inUserGroup			TEXT			NOT NULL, 
-	notInUserGroup			TEXT			NOT NULL,
 	hasBirthday			TINYINT(1)		NOT NULL DEFAULT -1,
 	minActivityPoints		INT(10)			NOT NULL DEFAULT -1, 
 	maxActivityPoints		INT(10)			NOT NULL DEFAULT -1,
@@ -28,4 +26,15 @@ CREATE TABLE wcf1_advancedannouncement (
 	additionalStyleClasses		TEXT
 );
 
+DROP TABLE IF EXISTS wcf1_advancedannouncement_groups;
+CREATE TABLE wcf1_advancedannouncement_groups (
+	advancedannouncementID		INT(10)			NOT NULL,
+	groupID         		INT(10)			NOT NULL,
+        type             		ENUM('in', 'ex')	NOT NULL    -- in = include ; ex = exclude
+);
+
 ALTER TABLE  wcf1_user ADD  advancedannouncement MEDIUMTEXT;
+
+-- foreign keys
+ALTER TABLE wcf1_advancedannouncement_groups ADD FOREIGN KEY (advancedannouncementID) REFERENCES wcf1_advancedannouncement (advancedannouncementID) ON DELETE CASCADE;
+ALTER TABLE wcf1_advancedannouncement_groups ADD FOREIGN KEY (groupID) REFERENCES wcf1_user_group (groupID) ON DELETE CASCADE;

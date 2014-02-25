@@ -100,11 +100,10 @@ class AdvancedAnnouncementEditForm extends AdvancedAnnouncementAddForm {
 		}
 
 		$this->objectAction = new AdvancedAnnouncementAction(array($this->advancedAnnouncement), 'update', array(
+			'usergroups' => array($this->vgroups),
 			'data' => array(
 				'name' => $this->name,
 				'removable' => ($this->removable) ? 1 : 0,
-				'inUserGroup' => serialize($this->inUserGroup),
-				'notInUserGroup' => serialize($this->notInUserGroup),
 				'hasBirthday' => $this->hasBirthday,
 				'minActivityPoints' => $this->minActivityPoints,
 				'maxActivityPoints' => $this->maxActivityPoints,

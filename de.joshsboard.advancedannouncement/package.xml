@@ -5,7 +5,7 @@
 		<packagename language="de"><![CDATA[Erweiterte Ankündigung]]></packagename>
 		<packagedescription><![CDATA[This package provides an system to show global announcements to specific user.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Dieses Paket stellt die Möglichkeit zur Verfügung, bestimmten Nutzern eine globale Ankündigung zu zeigen.]]></packagedescription>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<date>2013-01-31</date>
 	</packageinformation>
 	

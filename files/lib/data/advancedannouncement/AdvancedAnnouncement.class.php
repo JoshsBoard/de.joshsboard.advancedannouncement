@@ -30,6 +30,37 @@ class AdvancedAnnouncement extends DatabaseObject {
 	protected static $databaseTableIndexName = 'advancedannouncementID';
 
 	/**
+	 * the groups which are required
+	 * @var array<String> 
+	 */
+	protected $groups = null; 
+	
+	/**
+	 * the group type for require including 
+	 */
+	const GROUP_TYPE_INCLUDE = 'in'; 
+	
+	/**
+	 * the group type for require excluding 
+	 */
+	const GROUP_TYPE_EXCLUDE = 'ex'; 
+	
+	/**
+	 * @see wcf\data\DatabaseObject::handleData()
+	 */
+	public function handleData($data) {
+		parent::handleData($data);
+		
+		$sql = "SELECT groupID, type FROM wcf1_advancedannouncement_groups WHERE advancedannouncementID = ?"; 
+		$stmt = WCF::getDB()->prepareStatement($sql); 
+		$stmt->execute(array($this->getObjectID()));
+
+		while ($row = $stmt->fetchArray()) {
+			$this->groups[$row['groupID']] = $row['type'];
+		}
+	}
+	
+	/**
 	 * check, whether the announcement is displayed to the current user
 	 * 
 	 * @param \wcf\data\user\User		$user
@@ -78,14 +109,16 @@ class AdvancedAnnouncement extends DatabaseObject {
 		
 		// check time older than
 		if ($this->timeIsOlderThan != -1) {
-			if (TIME_NOW < $this->timeIsOlderThan)
-				return false; 
+			if (TIME_NOW < $this->timeIsOlderThan) {
+				return false;
+			}
 		}
 		
 		// check time younger than
 		if ($this->timeIsYoungerThan != -1) {
-			if (TIME_NOW > $this->timeIsYoungerThan)
-				return false; 
+			if (TIME_NOW > $this->timeIsYoungerThan) {
+				return false;
+			}
 		}
 		
 		// check min activity points
@@ -102,26 +135,11 @@ class AdvancedAnnouncement extends DatabaseObject {
 			}
 		}
 		
-		// check is in usergroup
-		$userGroups = unserialize($this->inUserGroup); 
-
-		if (is_array($userGroups) && !empty($userGroups)) {
-			foreach ($userGroups as $groupID) {
-				if (!in_array($groupID, $user->getGroupIDs())) {
-					return false; 
-				}
-			} 
-		}
-		
-		// check is NOT in usergroup
-		$userGroups = unserialize($this->notInUserGroup); 
-
-		if (is_array($userGroups) && !empty($userGroups)) {
-			foreach ($userGroups as $groupID) {
-				if (in_array($groupID, $user->getGroupIDs())) {
-					return false; 
-				}
-			} 
+		// check usergroups
+		foreach ($this->getUserGroups() as $groupID => $type) {
+			if ((!in_array($groupID, $user->getGroupIDs()) && $type == self::GROUP_TYPE_INCLUDE) || (in_array($groupID, $user->getGroupIDs()) && $type == self::GROUP_TYPE_EXCLUDE)) {
+				return false; 
+			}
 		}
 		
 		// has birthday? 
@@ -212,6 +230,10 @@ class AdvancedAnnouncement extends DatabaseObject {
 		}
 		
 		return true; 
+	}
+	
+	public function getUserGroups() {
+		return $this->groups; 
 	}
 	
 	/**
