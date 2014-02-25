@@ -67,7 +67,7 @@
 	</category>
 	
 	<category name="wcf.advancedannouncements">
-		<item name="wcf.advancedannouncements.content1"><![CDATA[This is a sample notice that only administrators can see. You can edit this announcement in the Administrationpanal under the item Content -> Advanced Announcements.\n\nBest regards and have fun with the plugin\n\n[url=https://www.woltlab.com/index.php/User/1349209-Josh/]Joshua Rüsweg[/url]]]></item>
+		<item name="wcf.advancedannouncements.content1"><![CDATA[This is a sample notice that only administrators can see. You can edit this announcement in the Administrationpanal under the item Content -> Advanced Announcements.<br /><br />Best regards and have fun with the plugin<br /><br />[url=https://www.woltlab.com/index.php/User/1349209-Josh/]Joshua Rüsweg[/url]]]></item>
 	</category>
 	
 	<category name="wcf.acp.group">

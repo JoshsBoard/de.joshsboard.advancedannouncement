@@ -55,6 +55,8 @@ class AdvancedAnnouncement extends DatabaseObject {
 		$stmt = WCF::getDB()->prepareStatement($sql); 
 		$stmt->execute(array($this->getObjectID()));
 
+		$this->groups = array(); 
+		
 		while ($row = $stmt->fetchArray()) {
 			$this->groups[$row['groupID']] = $row['type'];
 		}

@@ -4,7 +4,7 @@
  */
 
 $objectAction = new wcf\data\advancedannouncement\AdvancedAnnouncementAction(array(), 'create', array(
-	'usergroups' => array(array(4 => wcf\data\advancedannouncement\AdvancedAnnouncement::GROUP_TYPE_INCLUDE)),
+	'usergroups' => array(4 => wcf\data\advancedannouncement\AdvancedAnnouncement::GROUP_TYPE_INCLUDE), // only admin should see this!
 	'data' => array(
 		'name' => "Example-Announcement",
 		'removable' => 1,
@@ -23,7 +23,7 @@ $objectAction = new wcf\data\advancedannouncement\AdvancedAnnouncementAction(arr
 		'parentObjectType' => serialize(array()),
 		'content' => 'wcf.advancedannouncements.content1',
 		'parseBBCodes' => 1,
-		'allowHTML' => 0,
+		'allowHTML' => 1,
 		'allowSmileys' => 1,
 		'additionalStyleClasses' => 'info'
 	)));
